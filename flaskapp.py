@@ -33,10 +33,9 @@ def hello(name):
 
 @app.route('/analyze/<word>')
 def analyze(word):
-    # Step 1: character count (already done)
+    # character count
     num_chars = len(word)
 
-    # Step 2: YOUR CODE HERE
     # Count vowels (a, e, i, o, u) — case insensitive, y is not a vowel
     # Hint: word.lower() converts to lowercase before checking each character
     word_a = word.lower()
@@ -46,12 +45,15 @@ def analyze(word):
             num_vowels += 1
      # replace this with your vowel-counting logic
 
-    # render_template passes all variables into analyze.html
+    # Reverse the word
+    # Hint: Python string slicing with [::-1] reverses a string
+    reversed_word = word[::-1]
+
     return render_template('analyze.html',
                            word=word,
                            num_chars=num_chars,
-                           num_vowels=num_vowels)
-
+                           num_vowels=num_vowels,
+                           reversed_word=reversed_word)
 
 
 
